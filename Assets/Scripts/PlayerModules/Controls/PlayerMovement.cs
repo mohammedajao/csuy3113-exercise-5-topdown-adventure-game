@@ -15,7 +15,6 @@ public class PlayerMovement
         agent = agnt;
         camera = cmra;
         playerRigidBody = rb;
-        groundLM = glm;
     }
 
     void GatherInput()
@@ -31,6 +30,8 @@ public class PlayerMovement
     // Update is called once per frame
     public void Update()
     {
+        // Should add a feedback UI to the game world
+        // For example, Legaue of Legends has arrows pour in where you click to move.
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);

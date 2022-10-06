@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     public Rigidbody playerRigidBody;
     public Camera camera;
+    
+    public int health = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +24,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         controller.Update();
+    }
+
+    void TakeTrueDamage(int val)
+    {
+        health -= val;
     }
 }
