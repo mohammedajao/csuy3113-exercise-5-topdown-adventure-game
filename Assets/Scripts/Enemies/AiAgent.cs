@@ -34,7 +34,6 @@ public class AiAgent : MonoBehaviour
     {
         stateMachine.Update();
         float distance = Vector3.Distance(transform.position, playerTransform.position);
-        Debug.Log("Distance is: " + distance);
         if(distance < maxSightDistance) {
             stateMachine.ChangeState(chase.GetId());
         } else {
