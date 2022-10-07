@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class Door_to_nextlevel : MonoBehaviour
 {
     public string levelToLoad;
-    private bool locked = false;
+    // defaulting to true for testing
+    private bool locked = true;
 
+    // for some reason, this isn't working properly
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -28,7 +30,7 @@ public class Door_to_nextlevel : MonoBehaviour
     // handler to unlock door
     public void UnlockDoor(){
         locked = false;
-        Debug.Log("Door unlocked");
+        // Debug.Log("Door unlocked");
     }
 
 
