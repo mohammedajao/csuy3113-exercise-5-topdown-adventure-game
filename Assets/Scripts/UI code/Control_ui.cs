@@ -14,6 +14,6 @@ public class Control_ui : MonoBehaviour
     
     public void GoMainMenu()
     {
-        SceneManager.LoadScene("BaseScene");
+        SceneManager.LoadScene("Start_Scene");
     }
 }
