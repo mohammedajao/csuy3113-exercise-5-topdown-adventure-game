@@ -7,10 +7,10 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager current;
-    public int score = 0;
 
     public List<Collectible> collectibles;
     private List<Collectible> _collectiblesRemaining;
+    private int coins_left;
 
     void onEnable()
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void HandlePickup(Collectible coll) 
     {
-        score += 1;
+        coins_left -= 1;
     }
 
 
@@ -49,11 +49,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         onEnable();
+        coins_left = collectibles.Count;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    // function to check if all coins are collected
+    public bool collected_all_coins()
+    {
+        if(coins_left == 0)
+            return true;
+        else
+            return false;
     }
 }
