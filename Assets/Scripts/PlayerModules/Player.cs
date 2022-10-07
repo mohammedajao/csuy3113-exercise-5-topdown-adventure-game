@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Camera camera;
     
     public int health = 100;
+    public bool alive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +26,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controller.Update();
+        if(alive)
+            controller.Update();
     }
 
     public void TakeTrueDamage(int val)
     {
         Debug.Log("Player took damage: " + val);
         health -= val;
+        if(health <= 0) {
+            alive = false;
+        }
     }
 
     //update keys when collected
@@ -55,12 +60,14 @@ public class Player : MonoBehaviour
     }
 
     // check if player is dead and then prompt to restart
-    private void OnGUI(){
+    void OnGUI(){
+        Debug.Log("OnGui called");
         if(health <= 0){
+            Debug.Log("Health is less than 0!!");
             GUI.Label(new Rect(10, 10, 100, 20), "You Died!");
-            if(GUI.Button(new Rect(10, 30, 100, 20), "Restart")){
+            GUI.Label(new Rect(10,10,100,30), "DEAD!");
+            if(GUI.Button(new Rect(10, 30,Screen.width-60, Screen.height-200), "Restart")){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
             }
         }
     }
