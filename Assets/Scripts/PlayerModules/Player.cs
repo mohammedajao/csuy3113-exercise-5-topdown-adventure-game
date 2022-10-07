@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -38,4 +39,24 @@ public class Player : MonoBehaviour
             PublicVars.Keys++;
         }
     }
+
+    // take damage when hit by enemy
+    private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.CompareTag("Enemy")){
+            TakeTrueDamage(10);
+        }
+    }
+
+    // check if player is dead and then prompt to restart
+    private void OnGUI(){
+        if(health <= 0){
+            GUI.Label(new Rect(10, 10, 100, 20), "You Died!");
+            if(GUI.Button(new Rect(10, 30, 100, 20), "Restart")){
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            }
+        }
+    }
+
+    
 }

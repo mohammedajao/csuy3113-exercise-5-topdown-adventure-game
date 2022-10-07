@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2730714659017694259}
   m_Layer: 0
   m_Name: AiAgent
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2730714659991201965}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,5 +184,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   navMeshAgent: {fileID: 0}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 2730714659991201964}
   maxSightDistance: 10
