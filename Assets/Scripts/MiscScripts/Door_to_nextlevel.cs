@@ -15,16 +15,20 @@ public class Door_to_nextlevel : MonoBehaviour
             if (!locked)
             {
                 SceneManager.LoadScene(levelToLoad);
-            } else {
-                if (PublicVars.Keys > 0){
-                    PublicVars.Keys--;
-                    SceneManager.LoadScene(levelToLoad);
-                }
-            }
-            // if (GameManager.collected_all_coins()){
-            //     SceneManager.LoadScene(levelToLoad);
+            } 
+            // else {
+            //     if (PublicVars.Keys > 0){
+            //         PublicVars.Keys--;
+            //         SceneManager.LoadScene(levelToLoad);
+            //     }
             // }
         }
+    }
+
+    // handler to unlock door
+    public void UnlockDoor(){
+        locked = false;
+        Debug.Log("Door unlocked");
     }
 
 

@@ -3849,6 +3849,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7749745624298044876, guid: ed3121cfdbc7d4335bad889b4fc81b25, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1912336233}
+    - target: {fileID: 7749745624298044876, guid: ed3121cfdbc7d4335bad889b4fc81b25, type: 3}
       propertyPath: collectibles.Array.size
       value: 8
       objectReference: {fileID: 0}

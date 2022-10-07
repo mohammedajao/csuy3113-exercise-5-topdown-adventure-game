@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public List<Collectible> collectibles;
     private List<Collectible> _collectiblesRemaining;
     private int coins_left;
+    public Door_to_nextlevel door;
 
     void onEnable()
     {
@@ -55,7 +56,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(coins_left == 0) {
+            door.UnlockDoor();
+        }
     }
 
     // // function to check if all coins are collected
