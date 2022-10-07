@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: 0
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 2730714659991201967}
   playerTransform: {fileID: 2730714659991201964}
   maxSightDistance: 10

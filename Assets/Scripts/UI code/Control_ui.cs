@@ -7,7 +7,7 @@ public class Control_ui : MonoBehaviour
 {
     public void ResetTheGame()
     {
-        SceneManager.LoadScene("BaseScene"); 
+        SceneManager.LoadScene("SampleScene"); 
         print("The button is working.");
     }
 

@@ -58,12 +58,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // function to check if all coins are collected
-    public bool collected_all_coins()
-    {
-        if(coins_left == 0)
-            return true;
-        else
-            return false;
-    }
+    // // function to check if all coins are collected
+    // public bool collected_all_coins()
+    // {
+    //     if(coins_left == 0)
+    //         return true;
+    //     else
+    //         return false;
+    // }
+
+    // public void getGameManger()
+    // {
+    //     Debug.Log("GameManager");
+    // }
 }
