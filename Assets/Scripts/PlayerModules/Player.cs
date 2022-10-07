@@ -30,4 +30,12 @@ public class Player : MonoBehaviour
     {
         health -= val;
     }
+
+    //update keys when collected
+    private void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Key")){
+            Destroy(other.gameObject);
+            PublicVars.Keys++;
+        }
+    }
 }
