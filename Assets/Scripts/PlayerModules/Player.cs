@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         agent = GetComponentsInChildren<UnityEngine.AI.NavMeshAgent>()[0];
         controller = new CharacterController(playerRigidBody, agent, camera);
         controller.Start();
+        Events.playerTakeDamage.AddListener(TakeTrueDamage);
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
         controller.Update();
     }
 
-    void TakeTrueDamage(int val)
+    public void TakeTrueDamage(int val)
     {
         health -= val;
     }
@@ -38,10 +39,14 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             PublicVars.Keys++;
         }
+        if(other.CompareTag("Enemy")) {
+            Debug.Log("Player got hit!");
+        }
     }
 
     // take damage when hit by enemy
     private void OnCollisionEnter(Collision collision){
+        Debug.Log("Collision name is: " + collision.gameObject.name);
         if(collision.gameObject.CompareTag("Enemy")){
             Debug.Log("Player hit by enemy");
             TakeTrueDamage(10);

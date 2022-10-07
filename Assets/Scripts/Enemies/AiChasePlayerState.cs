@@ -22,9 +22,6 @@ public class AiChasePlayerState : AiState
             return;
         }
 
-        Debug.Log("Updating chase player");
-
-
         timer -= Time.deltaTime;
 
         //         agent.navMeshAgent.SetDestination(agent.playerTransform.position);
@@ -36,9 +33,6 @@ public class AiChasePlayerState : AiState
         } else {
             agent.navMeshAgent.SetDestination(agent.playerTransform.position);
         }
-
-
-        Debug.Log("Time is: " + timer);
 
         if(timer < 0.0f) {
             Vector3 direction = (agent.playerTransform.position - agent.navMeshAgent.destination);
