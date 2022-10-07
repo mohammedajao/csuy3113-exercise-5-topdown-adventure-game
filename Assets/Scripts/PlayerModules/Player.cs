@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     public void TakeTrueDamage(int val)
     {
+        Debug.Log("Player took damage: " + val);
         health -= val;
     }
 
