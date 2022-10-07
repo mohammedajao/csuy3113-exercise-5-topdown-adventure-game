@@ -7,6 +7,7 @@ public class Door_to_nextlevel : MonoBehaviour
 {
     public string levelToLoad;
     public bool locked = false;
+    
 
     private void OnTriggerEnter(Collider other)
     {
