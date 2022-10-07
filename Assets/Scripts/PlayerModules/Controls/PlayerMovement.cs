@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class PlayerMovement
 {
     private Camera camera;
-    private Vector3 movementInput;
     public Rigidbody playerRigidBody;
     public NavMeshAgent agent;
 
@@ -17,10 +16,6 @@ public class PlayerMovement
         playerRigidBody = rb;
     }
 
-    void GatherInput()
-    {
-        movementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-    }
     // Start is called before the first frame update
     public void Start()
     {
@@ -38,6 +33,10 @@ public class PlayerMovement
 
             if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) {
                 if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) {
+                    var rel = (playerRigidBody.transform.position + hit.point) - playerRigidBody.transform.position;
+                    var rot = Quaternion.LookRotation(rel, Vector3.up);
+
+                    playerRigidBody.transform.rotation = rot;
                     agent.SetDestination(hit.point);
                 }
             }

@@ -8,9 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager current;
     public int score = 0;
 
-    List<Collectible> collectibles;
-   private List<Collectible> _collectiblesRemaining;
-
+    public List<Collectible> collectibles;
+    private List<Collectible> _collectiblesRemaining;
 
     void onEnable()
     {
@@ -29,7 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void HandlePickup(Collectible coll) 
     {
-        Debug.Log("Called update pcikup");
         score += 1;
     }
 
