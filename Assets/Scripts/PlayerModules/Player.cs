@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         controller.Update();
+        if(health <= 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void TakeTrueDamage(int val)
@@ -54,16 +57,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    // check if player is dead and then prompt to restart
-    private void OnGUI(){
-        if(health <= 0){
-            GUI.Label(new Rect(10, 10, 100, 20), "You Died!");
-            if(GUI.Button(new Rect(10, 30, 100, 20), "Restart")){
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    // // check if player is dead and then prompt to restart
+    // private void OnGUI(){
+    //     if(health <= 0){
+    //         GUI.Label(new Rect(10, 10, 100, 20), "You Died!");
+    //         if(GUI.Button(new Rect(10, 30, 100, 20), "Restart")){
+    //             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     
 }
