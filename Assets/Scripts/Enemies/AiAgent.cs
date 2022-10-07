@@ -22,13 +22,10 @@ public class AiAgent : MonoBehaviour
         }
         navMeshAgent = GetComponent<NavMeshAgent>();
         stateMachine = new AiStateMachine(this);
-        // stateMachine.RegisterState(new AiChasePlayerState());
-        // stateMachine.RegisterState(new AiIdleState());
         chase = new AiChasePlayerState();
         idle = new AiIdleState();
         stateMachine.RegisterState(chase);
         stateMachine.RegisterState(idle);
-        // stateMachine.ChangeState(initialState);
         stateMachine.ChangeState(idle.GetId());
     }
 
