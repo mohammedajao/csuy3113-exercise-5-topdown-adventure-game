@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     // take damage when hit by enemy
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.CompareTag("Enemy")){
+            Debug.Log("Player hit by enemy");
             TakeTrueDamage(10);
         }
     }

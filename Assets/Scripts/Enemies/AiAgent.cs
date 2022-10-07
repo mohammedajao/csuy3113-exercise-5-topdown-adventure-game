@@ -11,6 +11,8 @@ public class AiAgent : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform playerTransform;
     public int maxSightDistance = 10;
+    private AiState chase;
+    private AiState idle;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +22,26 @@ public class AiAgent : MonoBehaviour
         }
         navMeshAgent = GetComponent<NavMeshAgent>();
         stateMachine = new AiStateMachine(this);
-        stateMachine.RegisterState(new AiChasePlayerState());
-        stateMachine.RegisterState(new AiIdleState());
-        stateMachine.ChangeState(initialState);
+        // stateMachine.RegisterState(new AiChasePlayerState());
+        // stateMachine.RegisterState(new AiIdleState());
+        chase = new AiChasePlayerState();
+        idle = new AiIdleState();
+        stateMachine.RegisterState(chase);
+        stateMachine.RegisterState(idle);
+        // stateMachine.ChangeState(initialState);
+        stateMachine.ChangeState(idle.GetId());
     }
 
     // Update is called once per frame
     void Update()
     {
         stateMachine.Update();
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        Debug.Log("Distance is: " + distance);
+        if(distance < maxSightDistance) {
+            stateMachine.ChangeState(chase.GetId());
+        } else {
+            stateMachine.ChangeState(idle.GetId());
+        }
     }
 }
