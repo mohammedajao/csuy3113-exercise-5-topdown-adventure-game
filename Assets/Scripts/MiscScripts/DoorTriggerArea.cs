@@ -20,19 +20,4 @@ public class DoorTriggerArea : MonoBehaviour
             Events.onDoorwayTriggerEnter.Invoke();
         }
     }
-
-    void OnCollisionEnter(Collision coll)
-    {
-        Debug.Log("Colludded");
-        // Events.onDoorwayTriggerEnter.Invoke();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Physics.CheckSphere(transform.position, doorActivationRange, playerLM)) {
-            // Debug.Log("found plyr");
-            // Events.onDoorwayTriggerEnter.Invoke();
-        }
-    }
 }
